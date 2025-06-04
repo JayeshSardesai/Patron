@@ -1,15 +1,11 @@
 import { NextResponse } from "next/server";
 import { validatePaymentVerification } from "razorpay/dist/utils/razorpay-utils";
 import Payment from "@/models/Payment";
-<<<<<<< HEAD
-import connectDB from "../../../utils/connectDB";
-=======
 import connectdb from "../../../db/connectdb.js";
->>>>>>> 6de30f39894fea78fa24fb52307746eb80acdf54
 
 export const POST = async (req) => {
     console.log("💥 Razorpay callback HIT");
-    await connectDB();
+    await connectdb();
     const bodyText = await req.text();
     const params = new URLSearchParams(bodyText);
     const body = Object.fromEntries(params.entries());
